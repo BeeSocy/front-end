@@ -234,8 +234,8 @@
 #mobile-menu-container {
     display: none;
     position: fixed;
+    bottom: 0;
     width: 100%;
-    top: calc(100vh - 60px);
     align-items: center;
     justify-content: space-around;
     padding: 5px;
