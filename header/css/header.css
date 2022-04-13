@@ -5,14 +5,12 @@
 /*Global*/
 
 /*Header*/
-
-#nav-container {
+#header {
     position: fixed;
     width: 100%;
-}
-
-#header {
     background: var(--bg-primary);
+    height: 62.8px;
+    z-index: 2;
 }
 
 #main-menu  {
@@ -36,6 +34,7 @@
     font-weight: 700;
     display: flex;
     height: 40px;
+    width: auto;
 }
 
 .logo img {
@@ -110,12 +109,6 @@
     margin-left: 5px;
 }
 
-@-moz-document url-prefix() {
-    .submit-btn {
-        background: linear-gradient(90deg, #fee227, #ef6a3d);
-    }
-}
-
 .submit-btn:hover {
     --g1: #ef6a3d;
     --g2: #fee227;
@@ -126,12 +119,15 @@
 /*Side Nav*/
 
 #side-menu {
-    height: calc(100vh - 64px);
+    position: fixed;
+    height: 100vh;
     background: var(--bg-primary);
     width: fit-content;
     overflow-x: hidden;
     font-size: 14px;
     font-weight: 400;
+    padding-top: 60px;
+    z-index: 1;
 }
 
 #side-menu-closer {
@@ -231,16 +227,22 @@
     content: 'Mostrar menos';
 }
 
+#following-menu #js-show-more {
+    width: 100%;
+}
+
 #mobile-menu-container {
     display: none;
     position: fixed;
+    bottom: 0;
     width: 100%;
-    top: calc(100vh - 60px);
     align-items: center;
     justify-content: space-around;
     padding: 5px;
     background: var(--bg-primary);
     height: 56px;
+    border-top: 1px solid var(--bg-light);
+    z-index: 1;
 }
 
 .mobile-menu-item {
@@ -254,7 +256,25 @@
     width: 55px;
 }
 
+
 /*Side Nav*/
+
+/*Compatibility*/
+@-moz-document url-prefix() {
+    #side-menu{
+        width: 60px;
+    }
+
+    .submit-btn {
+        background: linear-gradient(90deg, #fee227, #ef6a3d);
+    }
+
+    .logo {
+        width: 40px;
+    }
+}
+
+/*Compatibility*/
 
 /*Responsive*/
 
@@ -262,13 +282,7 @@
     #side-menu.active {
         width: 180px;
     }
-}
-
-@media (max-width: 768.6px) {
-    #side-menu::-webkit-scrollbar, #side-menu.active::-webkit-scrollbar {
-        width: 0px;
-    }
-
+    
     .search-bar {
         display: none;
     }
@@ -278,6 +292,13 @@
     }
 }
 
+@media (max-width: 768.6px) {
+    #side-menu::-webkit-scrollbar, #side-menu.active::-webkit-scrollbar {
+        width: 0px;
+    }
+
+}
+
 @media (max-width: 425.6px) {
     #side-menu {
         width: 0px;
@@ -285,7 +306,6 @@
 
     #side-menu.active {
         width: 100%;
-
     }
 
     .menu:first-child, .line:nth-child(2), #header #side-menu-toggler, #following-menu {
@@ -305,6 +325,16 @@
     .logo {
         font-size: 0;
     }
+}
+
+@media (min-width: 768.6px) {
+	.btn:hover {
+		background: var(--bg-light);
+	}
+	
+	.menu-item:hover {
+		background: var(--bg-light);
+	}
 }
 
 /*Responsive*/

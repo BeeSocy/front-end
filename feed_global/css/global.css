@@ -28,7 +28,6 @@ button {
     color: currentColor;
     padding: 0;
     margin: 0;
-    width: 100%;
 }
 
 button:hover {
@@ -70,4 +69,8 @@ ul, li {
     width: 100%;
     background: var(--bg-light);
     margin: 10px 0;
+}
+
+.hexagon {
+    transform: rotate(90deg);
 }
