@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => { //Start the code when the 
         document.querySelector('#following-menu').classList.toggle('active');
     });
 
+    document.body.className = localStorage.getItem('theme');
+
     document.querySelector('.theme-btn').addEventListener('click', () => {
         document.body.classList.toggle('light');
+        localStorage.setItem('theme', document.body.className);
     })
 });

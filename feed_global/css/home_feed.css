@@ -1,0 +1,246 @@
+#content-container {
+    padding: 30px;
+    padding-top: 85px;
+    padding-left: 75px;
+}
+
+@media (max-width: 1024.6px) {
+    #content-container.active {
+        padding-left: 210px;
+    }
+}
+
+@media (max-width: 425.6px) {
+    #content-container {
+        padding: 10px;
+        padding-top: 75px;
+        padding-bottom: 70px;
+    }
+}
+
+/*Container measures*/
+
+.media {
+    height: 250px;
+    animation: zoom_at_start .5s;
+}
+
+@keyframes zoom_at_start {
+    from {
+        transform: scale(0.5);
+    }
+    
+    to {
+        transform: scale(1);
+    }
+}
+
+.feed {
+    display: grid;
+    gap: 10px;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.w-2 {
+    grid-column: span 2;
+}
+
+.card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: inherit;
+    border-radius: 20px;
+}
+
+.img-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 20px;
+}
+
+.music-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    padding: 15px;
+    align-items: center;
+    transition: background-color .5s;
+    text-align: center;
+}
+
+.music-card:active {
+    background-color: var(--bg-light);
+}
+
+.music-card .artist{
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.music-card .explicit {
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+.music-card .cover {
+    display: flex;
+    width: 160px;
+    height: 160px;
+    background-size: 100%;
+    border-radius: inherit;
+}
+
+.music-card .play-button .icon {
+    font-size: 45px;
+    height: fit-content;
+}
+
+.music-card .play-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.music-card .menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    color: #f7f7f7;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.music-card:hover .menu {
+    opacity: 1;
+}
+
+.music-card .toolbar {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+    padding: 10px;
+}
+
+.music-card .toolbar-menu {
+    display: none;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid var(--bg-light);
+    color: var(--text);
+    position: absolute;
+    margin-top: 30px;
+    background: var(--bg-primary);
+}
+
+.music-card .toolbar-menu.active {
+    display: flex;
+}
+
+.music-card .toolbar-menu .menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.music-card .toolbar-menu .menu-item:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.music-card .toolbar-menu .menu-item:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.music-card .toolbar-menu .menu-item .icon {
+    margin-right: 5px;
+}
+
+.code-card .cover{  
+    display: flex;
+    align-items: flex-end;
+    width: inherit;
+    height: inherit;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: inherit;
+    background-repeat: no-repeat;
+}
+
+
+.code-card .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 70%;
+    margin-bottom: -1px;
+    background: linear-gradient(#00000000, #000000);
+    color: #f7f7f7;
+    padding: 15px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    transition: height 0.5s;
+}
+
+.code-card:hover .details {
+    height: 100%;
+}
+
+.code-card .language {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.code-card .language .hexagon {
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+.code-card .language .hexagon.javascript {
+    color: var(--javascript);
+}
+
+@media (max-width: 1024.6px) {
+    .feed {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768.6px) {
+    .feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .music-card .menu {
+        opacity: 1;
+        background: none;
+    }
+}
+
+@media (max-width: 425.6px) {
+    .feed {
+        grid-template-columns: 1fr
+    }
+
+    .w-2 {
+        grid-column: span 1;
+    }
+}
