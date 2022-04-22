@@ -51,7 +51,7 @@ ul, li {
     height: 40px;
     width: 40px;
     border-radius: 200px;
-    transition: 0.5s;
+    transition: background 0.5s;
 }
 
 .btn:hover {
@@ -73,4 +73,77 @@ ul, li {
 
 .hexagon {
     transform: rotate(90deg);
+}
+
+
+.javascript {
+    color: var(--javascript);
+}
+
+.html {
+    color: var(--html);
+}
+
+.php {
+    color: var(--php);
+}
+
+.css {
+    color: var(--css);
+}
+
+.python {
+    color: var(--python);
+}
+
+.typescript {
+    color: var(--typescript);
+}
+
+.dart {
+    color: var(--dart);
+}
+
+.ruby {
+    color: var(--ruby);
+}
+
+.java {
+    color: var(--java);
+}
+
+.javascript-bg {
+    background: var(--javascript);
+}
+
+.html-bg {
+    background: var(--html);
+}
+
+.php-bg {
+    background: var(--php);
+}
+
+.css-bg {
+    background: var(--css);
+}
+
+.python-bg {
+    background: var(--python);
+}
+
+.typescript-bg {
+    background: var(--typescript);
+}
+
+.dart-bg {
+    background: var(--dart);
+}
+
+.ruby-bg {
+    background: var(--ruby);
+}
+
+.java-bg {
+    background: var(--java);
 }

@@ -202,6 +202,12 @@
     height: 100%;
 }
 
+.code-card .description {
+    height: fit-content;
+    word-break: break-all;
+    overflow: hidden;
+}
+
 .code-card .language {
     display: flex;
     align-items: center;
@@ -212,10 +218,6 @@
 .code-card .language .hexagon {
     font-size: 20px;
     margin-right: 3px;
-}
-
-.code-card .language .hexagon.javascript {
-    color: var(--javascript);
 }
 
 @media (max-width: 1024.6px) {
