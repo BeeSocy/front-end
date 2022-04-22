@@ -196,14 +196,14 @@ body {
 #languages-carousel {
     display: flex;
     width: calc(100vw - 96px);
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 25px;
 }
 
 
 #languages-carousel .item {
     display: none;
-    margin: 0 30px;
+    margin: 0 -1px;
 }
 
 #languages-carousel .item.active {
@@ -214,9 +214,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px 20px 0 0;
     width: 0;
-    padding: 25px 120px;
+    padding: 25px 0;
+    width: 170px;
     height: 40px;
     background: var(--bg-primary);
     box-shadow: 0 7px 0 -0.48px;
@@ -228,6 +228,9 @@ body {
 
 #languages-carousel .arrow {
     visibility: visible;
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .arrow {
@@ -267,11 +270,7 @@ body {
         display: flex;
         overflow-x: auto;
         margin-top: 5px;
-        width: calc(100vw - 50px);
-    }
-
-    #languages-carousel .top {
-        padding: 25px 100px;
+        width: calc(100vw - 16px);
     }
 }
 
@@ -280,42 +279,54 @@ body {
         width: 120vw;
         border-radius: 0;
         padding-left: 20px;
-        transform: translateX(-49px);
+        transform: translateX(-45px);
     }
 
     .feed.active {
         padding-left: 20px;
     }
 
-    #feed-header {
-        margin-left: 25px;
-    }
-
     #feed-content {
         overflow: auto hidden;
+        scroll-behavior: smooth;
+        margin-bottom: 20px;
     }
 
-    #feed-controller #arrows {
+    #feed-controller #arrows, #languages-carousel .left-arrow, #languages-carousel .right-arrow {
         display: none;
+    }
+
+    #languages-carousel .item {
+        display: flex;
+    }
+
+    #languages-carousel {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+        width: calc(100vw - -10px);
+        transform: translateX(-32px);
+        position: fixed;
+        bottom: -10px;
     }
 }
 
 @media (max-width: 425.6px) {
-    .feed {
-        padding-left: 40px;
-    }
-
-    .feed.active {
+    .feed, .feed.active {
         padding-left: 40px;
     }
 
     #languages-carousel {
-        width: 100%;
-        justify-content: center;
+        transform: translateX(-10px);
+        bottom: 45px;
     }
 
-    #languages-carousel .item {
-        margin: 0 5px;
+    #content-container {
+        padding-top: 50px;
+    }
+
+    #feed-header {
+        margin-bottom: 7px;
     }
 }
 
