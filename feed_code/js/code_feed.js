@@ -144,52 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#feed-header .return').addEventListener('click', () => {
         slide('#feed-content', 1, false, false, true);
+        document.querySelector('#feed-content').scroll(0, 0);
     });
 
-    let oldX = 0;
-
-    let slideMouse = () => {
-        if (event.pageX < oldX) {
-            slide('#feed-content', 0.2, true);
-        } else if (event.pageX > oldX) {
-            slide('#feed-content', 0.2, false);
-        }
-
-        oldX = event.pageX;
-    }
-
-    let slideTouch = () => {
-        if (event.touches[0].pageX < oldX) {
-            slide('#feed-content', 0.2, true, false);
-        } else if (event.touches[0].pageX > oldX) {
-            slide('#feed-content', 0.2, false, false);
-        }
-
-        oldX = event.touches[0].pageX;
-    }
-
-    let removeSlide = () => {
-        document.querySelector('#feed-content-container').removeEventListener('touchmove', slideTouch, false);
-        document.querySelector('#feed-content-container').removeEventListener('mousemove', slideMouse, false);
-    }
-
-    /* document.querySelector('#feed-content-container').addEventListener('dragstart', () => {
-        event.preventDefault();
-    });
-
-    document.querySelector('#feed-content-container').addEventListener('mousedown', () => {
-        document.querySelector('#feed-content-container').addEventListener('mousemove', slideMouse);
-    });
-
-    document.addEventListener('mouseup', removeSlide);   */
-
-    /* document.querySelector('#feed-content-container').addEventListener('touchstart', () => {
-        document.querySelector('#feed-content-container').addEventListener('touchmove', slideTouch);
-    });
-
-    document.addEventListener('touchend', removeSlide); */
-
-    let distanceRes = window.innerWidth <= 768.6 ? 1 : 3;
+    let distanceRes = window.innerWidth <= 1024.6 ? 4 : 5;
     let z = distanceRes + 1;
     const parent = '#languages-carousel';
     const child = '.item';
