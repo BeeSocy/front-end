@@ -193,11 +193,6 @@ body {
     visibility: visible;
 }
 
-#feed-controller .tip-text::before {
-    content: 'Dica: É possível arrastar para navegar.';
-}
-
-
 #languages-carousel {
     display: flex;
     width: calc(100vw - 96px);
@@ -249,7 +244,7 @@ body {
     color: var(--text);
 }
 
-.arrow:active {
+.arrow:hover {
     background: rgba(var(--bg-light-rgb), 0.3);
 }
 
@@ -272,6 +267,7 @@ body {
         display: flex;
         overflow-x: auto;
         margin-top: 5px;
+        width: calc(100vw - 50px);
     }
 
     #languages-carousel .top {
@@ -279,21 +275,38 @@ body {
     }
 }
 
-@media (max-width: 425.6px) {
+@media (max-width: 768.6px) {
     .feed {
         width: 120vw;
         border-radius: 0;
-        padding-left: 50px;
-        transform: translateX(-48px);
+        padding-left: 20px;
+        transform: translateX(-49px);
     }
 
     .feed.active {
-        padding-left: 50px;
+        padding-left: 20px;
+    }
+
+    #feed-header {
+        margin-left: 25px;
+    }
+
+    #feed-content {
+        overflow: auto hidden;
     }
 
     #feed-controller #arrows {
-        width: 100vw;
-        transform: translate(-10px, -250px);
+        display: none;
+    }
+}
+
+@media (max-width: 425.6px) {
+    .feed {
+        padding-left: 40px;
+    }
+
+    .feed.active {
+        padding-left: 40px;
     }
 
     #languages-carousel {
@@ -303,16 +316,6 @@ body {
 
     #languages-carousel .item {
         margin: 0 5px;
-    }
-}
-
-@media (min-width: 1023.6px) {
-    .arrow:hover {
-        background: rgba(var(--bg-light-rgb), 0.3);
-    }
-
-    #feed-controller .tip-text::before {
-        content: 'Dica: É possível usar o scroll do mouse para navegar.';
     }
 }
 

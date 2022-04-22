@@ -183,11 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mouseup', removeSlide);   */
 
-    document.querySelector('#feed-content-container').addEventListener('touchstart', () => {
+    /* document.querySelector('#feed-content-container').addEventListener('touchstart', () => {
         document.querySelector('#feed-content-container').addEventListener('touchmove', slideTouch);
     });
 
-    document.addEventListener('touchend', removeSlide);
+    document.addEventListener('touchend', removeSlide); */
 
     let distanceRes = window.innerWidth <= 768.6 ? 1 : 3;
     let z = distanceRes + 1;
