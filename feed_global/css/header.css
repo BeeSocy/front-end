@@ -114,6 +114,112 @@
     --g2: #fee227;
 }
 
+.auto-scroll-container {
+    display: none;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: center;
+}
+
+.scroll-input {
+    display: flex;
+    margin-top: 3px;
+}
+
+.scroll-input .scroll-checkbox {
+/*     appearance: none;
+    margin: 0;
+    background: var(--bg-primary);
+    border: 2px solid var(--text);
+    height: 20px;
+    width: 40px;
+    border-radius: 200px;  */
+
+    appearance: none;
+    margin: 0;
+}
+
+.scroll-input .scroll-checker {
+/*     display: block;
+    position: absolute;
+    transform: translate(3px, 2px);
+    width: 15px;
+    height: 15px;
+    background: var(--bg-light);
+    border-radius: 200px;
+    transition: 0.5s ease;  */
+    width: 25px;
+    height: 25px;
+}
+
+.scroll-input .scroll-checkbox:checked + .scroll-checker {
+/*     transform: translate(22px, 2px);
+    background: var(--yellow-bee); */
+
+    animation: bouncing .7s infinite ease-in alternate;
+}
+
+@keyframes bouncing {
+    from {
+        margin-bottom: 10px;
+    }
+}
+
+#progress-bar {
+    display: none;
+    height: 3px;
+    width: 100vw;
+    background: var(--bg-light);
+    animation: 3s ease alternate;
+}
+
+@keyframes alert {
+    20%, 30%, 40%, 50%, 60%, 70%, 80% {
+        height: 30px;
+    }
+}
+
+#progress-bar.active::before {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 500;
+    height: 3px;
+    width: 100%;
+    animation: alertText 3s ease alternate;
+    content: attr(title);
+    visibility: hidden;
+    opacity: 0;
+}
+
+@keyframes alertText {
+    20%, 30%, 40%, 50%, 60%, 70%, 80% {
+        height: 30px;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+#progress {
+    height: inherit;
+    width: 0%;
+    background: var(--yellow-bee);
+}
+
+#progress.active {
+    animation: scrollTime infinite linear;
+}
+
+@keyframes scrollTime {
+    to {
+        width: 100%;
+    }
+}
+
 /*Header Side B*/
 
 /*Side Nav*/
@@ -296,7 +402,6 @@
     #side-menu::-webkit-scrollbar, #side-menu.active::-webkit-scrollbar {
         width: 0px;
     }
-
 }
 
 @media (max-width: 425.6px) {
@@ -312,16 +417,14 @@
        display: none;
     }
 
-    #side-menu-closer, #mobile-menu-container {
+    #side-menu-closer, #mobile-menu-container, .auto-scroll-container, #progress-bar {
         display: flex;
     }
 
     .mobile-menu-item span:nth-child(2) {
         font-size: 13px;
     }
-}
 
-@media (max-width: 375.6px) {
     .logo {
         font-size: 0;
     }
@@ -336,5 +439,6 @@
 		background: var(--bg-light);
 	}
 }
+
 
 /*Responsive*/

@@ -33,7 +33,7 @@ body {
     from {
         transform: scale(0.5);
     }
-    
+
     to {
         transform: scale(1);
     }
@@ -53,7 +53,7 @@ body {
 }
 
 #feed-header .title {
-    font-size: 38px;
+    font-size: 25px;
 }
 
 #feed-header {
@@ -65,11 +65,11 @@ body {
 }
 
 #feed-header .option-item {
-    border: 3px solid var(--bg-light);
+    border: 2px solid var(--bg-light);
     padding: 7px 15px;
     border-radius: 20px;
-    font-weight: 750;
     margin-left: 20px;
+    font-size: 13px;
 }
 
 #feed-header .option-item:active {
@@ -115,7 +115,7 @@ body {
 }
 
 
-.code-card .cover{  
+.code-card .cover {
     display: flex;
     align-items: flex-end;
     width: inherit;
@@ -216,13 +216,14 @@ body {
     justify-content: center;
     width: 0;
     padding: 25px 0;
-    width: 170px;
+    width: 140px;
     height: 40px;
     background: var(--bg-primary);
     box-shadow: 0 7px 0 -0.48px;
 }
 
 #languages-carousel .title {
+    font-size: 15px;
     color: var(--text);
 }
 
@@ -231,6 +232,7 @@ body {
     font-size: 40px;
     width: 40px;
     height: 40px;
+    margin: 0 20px;
 }
 
 .arrow {
@@ -258,7 +260,7 @@ body {
     }
 
     #feed-header .title {
-        font-size: 32px;
+        margin-left: 5px;
     }
 
     #feed-header .option-item {
@@ -270,7 +272,17 @@ body {
         display: flex;
         overflow-x: auto;
         margin-top: 5px;
-        width: calc(100vw - 16px);
+    }
+
+    #feed-content::-webkit-scrollbar, #feed-header .options::-webkit-scrollbar {
+        height: 11px;
+    }
+    
+    #feed-content::-webkit-scrollbar-thumb, #feed-header .options::-webkit-scrollbar-thumb {
+        background-color: rgba(176, 176, 176, 0.8);
+        border: 4px solid transparent;
+        background-clip: content-box;
+        border-radius: 200px;
     }
 }
 
@@ -292,7 +304,9 @@ body {
         margin-bottom: 20px;
     }
 
-    #feed-controller #arrows, #languages-carousel .left-arrow, #languages-carousel .right-arrow {
+    #feed-controller #arrows,
+    #languages-carousel .left-arrow,
+    #languages-carousel .right-arrow {
         display: none;
     }
 
@@ -309,10 +323,15 @@ body {
         position: fixed;
         bottom: -10px;
     }
+
+    #feed-header .options {
+        width: calc(100vw - 60px);
+    }
 }
 
 @media (max-width: 425.6px) {
-    .feed, .feed.active {
+    .feed,
+    .feed.active {
         padding-left: 40px;
     }
 
@@ -328,5 +347,8 @@ body {
     #feed-header {
         margin-bottom: 7px;
     }
-}
 
+    #feed-header .options {
+        width: calc(100vw - 16px);
+    }
+}
