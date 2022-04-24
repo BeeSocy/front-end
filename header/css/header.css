@@ -319,9 +319,7 @@
     .mobile-menu-item span:nth-child(2) {
         font-size: 13px;
     }
-}
 
-@media (max-width: 375.6px) {
     .logo {
         font-size: 0;
     }

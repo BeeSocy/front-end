@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('#feed-content-container').addEventListener('wheel', () => {
+        document.querySelector('#feed-content').style.width = 'fit-content';
         scrollSlide('#feed-content', 1);
         event.preventDefault();
     });
