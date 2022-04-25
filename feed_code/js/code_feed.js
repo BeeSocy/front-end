@@ -11,14 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
             contentWidth += v.clientWidth;
         });
 
+        let rows = window.getComputedStyle(document.querySelector('#feed-content')).gridTemplateRows.toString().split(' ').length;
+
         if (window.innerWidth >= 1440 && window) {
-            contentWidth = (contentWidth /= 2) + 800;
+            contentWidth = (contentWidth /= rows) + 800;
         } else {
             if (window.innerWidth >= 1024) {
-                contentWidth = (contentWidth /= 2) + 1200;
+                contentWidth = (contentWidth /= rows) + 1200;
             } else {
                 if (window.innerWidth >= 320) {
-                    contentWidth = (contentWidth /= 2) + 1600;
+                    contentWidth = (contentWidth /= rows) + 1600;
                 }
             }
         }
@@ -81,14 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
             contentWidth += v.clientWidth;
         });
 
+        let rows = window.getComputedStyle(document.querySelector('#feed-content')).gridTemplateRows.toString().split(' ').length;
+
         if (window.innerWidth >= 1440 && window) {
-            contentWidth = (contentWidth /= 2) + 800;
+            contentWidth = (contentWidth /= rows) + 800;
         } else {
             if (window.innerWidth >= 1024) {
-                contentWidth = (contentWidth /= 2) + 1200;
+                contentWidth = (contentWidth /= rows) + 1200;
             } else {
                 if (window.innerWidth >= 320) {
-                    contentWidth = (contentWidth /= 2) + 1600;
+                    contentWidth = (contentWidth /= rows) + 1600;
                 }
             }
         }
@@ -149,12 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let distanceRes = window.innerWidth <= 1024.6 ? 4 : 5;
-    let z = distanceRes + 1;
-    const parent = '#languages-carousel';
+    let z = distanceRes;
+    const parent = '#languages-carousel .items-container';
     const child = '.item';
 
     for (let x = 1; x <= distanceRes; x++) {
-        document.querySelector(`${parent} > ${child}:nth-child(${x + 1})`).classList.add('active');
+        document.querySelector(`${parent} > ${child}:nth-child(${x})`).classList.add('active');
     }
 
     function languageSlide(parent, child, forward, distance) {

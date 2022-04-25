@@ -78,6 +78,28 @@ ul, li {
     transform: rotate(90deg);
 }
 
+.pointer-arrow {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--text);
+    animation: pointer_arrow .5s infinite ease alternate;
+}
+
+.pointer-arrow:active::before {
+    content: 'Arraste para o lado';
+}
+
+@media (min-width: 768.6px) {
+    .pointer-arrow:hover::before {
+        content: 'Arraste para o lado';
+    }
+}
+
+.scroll-blur {
+    width: 50px;
+    height: 100px;
+    background: linear-gradient(90deg, #0000, var(--bg-secondary));
+}
 
 .javascript {
     color: var(--javascript);
