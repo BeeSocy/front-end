@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, true)
 
-    let i = 1;
     let on = false;
     let equivalent = 1;
     let timer;
@@ -25,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#progress').style.animationDuration = `${seconds}s`
         timer = setInterval(() => {
             if (on) {
-                window.scrollTo({ top: distance*equivalent, left: 0, behavior: 'smooth' });
-                i++;
+                window.scrollTo({ top: distance*equivalent, left: 0, behavior: 'smooth' })
             } else {
                 clearInterval(timer);
             }
