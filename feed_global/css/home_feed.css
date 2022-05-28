@@ -104,7 +104,7 @@
     display: flex;
     width: 12em;
     height: 12em;
-    background-size: 100%;
+    background-size: cover;
     border-radius: inherit;
 }
 

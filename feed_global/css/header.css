@@ -25,6 +25,11 @@
     align-items: center;
 }
 
+#side-a {
+    width: fit-content;
+    height: 40px;
+}
+
 /*Header*/
 
 /*Header Side A*/

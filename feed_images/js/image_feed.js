@@ -7,4 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     autoScroll('#image-categories', 200, 5);
+
+    document.querySelector('#image-categories').addEventListener('scroll', () => {
+        if(event.currentTarget.scrollLeft >= 10) {
+            document.querySelector('#image-categories .scroll-blur.left').classList.add('active');
+        }else {
+            document.querySelector('#image-categories .scroll-blur.left').classList.remove('active');
+        }
+    })
 });
