@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> gustavo
     let salutation;
     let date = new Date().getHours();
 
@@ -16,10 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
         salutation = 'Boa Noite';
     }
 
+<<<<<<< HEAD
     if(document.querySelector(`${carouselItems}`).children.length) {
         
     }
     
+=======
+>>>>>>> gustavo
     document.querySelector('.initial-title').innerHTML = salutation;
 
     document.querySelectorAll('.js-music-toolbar-toggler').forEach((v) => {
