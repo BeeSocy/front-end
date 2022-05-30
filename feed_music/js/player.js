@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         trackControler.loaded = true;
         trackControler.volume = trackControler.track.volume;
 
-
         trackControler.track.addEventListener('loadedmetadata', () => {
             trackControler.currentTime = 0;
             trackControler.finalTime = trackControler.track.duration;

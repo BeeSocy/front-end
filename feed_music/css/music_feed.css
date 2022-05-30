@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 @import url(player.css);
 
->>>>>>> gustavo
 #content-container {
     padding: 30px;
     padding-top: 85px;
@@ -235,11 +232,7 @@
     margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
-.music-card .explicit {
-=======
 .explicit {
->>>>>>> gustavo
     font-size: 20px;
     margin-right: 3px;
 }
