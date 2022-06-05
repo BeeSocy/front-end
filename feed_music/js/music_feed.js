@@ -30,20 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(window.innerHeight-(y-80) <= 440) {
                     v.children[1].style.setProperty('top', `${y-450}px`);
                 }
+
+                if((window.innerWidth - x) <= 165) {
+                    v.children[1].style.setProperty('left', `${x - 132}px`);
+                }
             }else {
+                v.classList.toggle('active');
                 v.children[1].style.setProperty('left', `${x}px`);
+                if((window.innerWidth - x) <= 165) {
+                    v.children[1].style.setProperty('left', `${x - 132}px`);
+                }
             }
         });
     });
 
     document.body.addEventListener('click', () => {
-        if ((!(event.target.classList.contains('js-music-toolbar-toggler'))) && (!(event.target.classList.contains('icon')))) {
-            document.querySelectorAll('.toolbar-menu').forEach((v) => {
-                if (v.classList.contains('active')) {
-                    v.classList.remove('active');
-                }
-            });
-        }
+        document.querySelectorAll('.toolbar-menu').forEach((v) => {
+            if (v.classList.contains('active')) {
+                v.classList.remove('active');
+            }
+        });
     }, true)
 
     function carousel(element, distance, forward) {

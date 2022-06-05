@@ -397,7 +397,8 @@ input[type="range"]::-moz-range-thumb {
 
     .side-details {
         border: none;
-        height: 200px;
+        height: 280px;
+        padding-bottom: 20px;
     }
 
     .big-player .cover-container {

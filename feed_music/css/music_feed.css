@@ -323,6 +323,10 @@
     margin-right: 5px;
 }
 
+.music-card .toolbar-menu .menu-item:active {
+    background: var(--bg-light);
+}
+
 .h-1 .music-card {
     flex-direction: row;
     padding: 10px;

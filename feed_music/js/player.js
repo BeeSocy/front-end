@@ -141,20 +141,20 @@ document.addEventListener('DOMContentLoaded', () => {
         trackControler.track.currentTime = 0;
         document.querySelector('.big-player .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
         document.querySelector('.big-player-mobile .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
-
+        
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new MediaMetadata({
-              title: trackControler.title,
-              artist: formartArtist(trackControler.artist),
-              album: 'Single',
-              artwork: [
-                { src: `${trackControler.coverPath}${trackControler.cover}`,   sizes: '96x96',   type: 'image/png' },
-                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '128x128', type: 'image/png' },
-                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '192x192', type: 'image/png' },
-                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '256x256', type: 'image/png' },
-                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '384x384', type: 'image/png' },
-                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '512x512', type: 'image/png' },
-              ]
+                title: trackControler.title,
+                artist: formartArtist(trackControler.artist),
+                album: 'Single',
+                artwork: [
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '96x96', type: 'image/png' },
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '128x128', type: 'image/png' },
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '192x192', type: 'image/png' },
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '256x256', type: 'image/png' },
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '384x384', type: 'image/png' },
+                    { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '512x512', type: 'image/png' },
+                ]
             });
         }
     }
@@ -209,15 +209,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 let x = event.currentTarget.getBoundingClientRect().left;
                 let y = event.currentTarget.getBoundingClientRect().top;
 
-                v.children[1].classList.toggle('active');
 
                 if (event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.contains('side-details')) {
+                    v.children[1].classList.toggle('active');
                     v.children[1].style.setProperty('top', `${y - 80}px`);
                     if (window.innerHeight - (y - 80) <= 440) {
                         v.children[1].style.setProperty('top', `${y - 450}px`);
                     }
+
+                    if ((window.innerWidth - x) <= 165) {
+                        v.children[1].style.setProperty('left', `${x - 132}px`);
+                    }
                 } else {
+                    v.classList.toggle('active');
                     v.children[1].style.setProperty('left', `${x}px`);
+                    if ((window.innerWidth - x) <= 165) {
+                        v.children[1].style.setProperty('left', `${x - 132}px`);
+                    }
                 }
             });
         });
@@ -440,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     value.value = trackControler.currentTime;
                     changeRangeStyle(value, 'var(--bg-light)', 'var(--yellow-bee)');
                 })
-    
+
             }, 1130);
         } else {
             clearInterval(timer);
@@ -450,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function playControl(play) {
         if (play) {
             startTime();
-            
+
             trackControler.controlers.play.forEach((value) => {
                 value.classList.add('playing')
             })
@@ -662,7 +670,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let notClick = []
 
     for (const key in trackControler.controlers) {
-        if(key != 'cover' && key != 'artist' && key != 'title' && key != 'explicit') {
+        if (key != 'cover' && key != 'artist' && key != 'title' && key != 'explicit') {
             if (trackControler.controlers[key]) {
                 trackControler.controlers[key].forEach((value) => {
                     notClick.push(value);
@@ -706,7 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('#content-container .play-button').forEach((value) => {
         value.addEventListener('click', () => {
-            if(!document.querySelector('.player').classList.contains('active')) {
+            if (!document.querySelector('.player').classList.contains('active')) {
                 startPlayer();
             }
         });
@@ -756,11 +764,12 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     playMusicInTrackList();
+    toolbarEvent();
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.setActionHandler('play', () => { playTrack() });
         navigator.mediaSession.setActionHandler('pause', () => { playTrack() });
         navigator.mediaSession.setActionHandler('previoustrack', () => { forward() });
         navigator.mediaSession.setActionHandler('nexttrack', () => { next() });
-    } 
+    }
 });
