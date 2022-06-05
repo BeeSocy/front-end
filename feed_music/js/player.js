@@ -687,7 +687,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.big-player-mobile .js-close').addEventListener('click', () => showBigPlayer());
 
     document.querySelectorAll('#content-container .play-button').forEach((value) => {
-        value.addEventListener('click', () => startPlayer());
+        value.addEventListener('click', () => {
+            if(!document.querySelector('.player').classList.contains('active')) {
+                startPlayer();
+            }
+        });
     })
 
 
