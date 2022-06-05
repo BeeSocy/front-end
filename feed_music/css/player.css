@@ -1,6 +1,16 @@
+*[hidden] {
+    display: none;
+}
+
+#player-container {
+    position: fixed;
+    bottom: 15px;
+    left: 8vw;
+    width: 100%;
+}
+
 .player {
     display: none;
-    bottom: 0;
 }
 
 .player.active {
@@ -9,29 +19,25 @@
     align-items: center;
     background: var(--bg-primary);
     width: 85%;
-    position: fixed;
     border-radius: 20px;
     padding: 15px;
-    left: 8vw;
-    bottom: 15px;
-    transition: 0.5s;
+    animation: showPlayer 0.5s;
 }
 
 .player .cover {
     width: 60px;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     margin-right: 5px;
 }
 
-.player .details {
-    width: fit-content;
+.player .details, .big-player-mobile .details {
     align-items: flex-start;
 }
 
-.player .details .title, .player .details .artist-description {
+.player .details .title, .player .details .artist-description, .big-player-mobile .details .title, .big-player-mobile  .details .artist-description {
     display: initial;
     width: 145px;
     white-space: nowrap;
@@ -39,48 +45,56 @@
     overflow: hidden;
 }
 
-.player .stats, .player .stats .controlers, .player .controlers-extra, .player .side-a, .player .time-container{
+.stats, .stats .controlers, .controlers-extra, .side-a, .time-container{
     display: flex;
 }
 
-.player .stats {
+.stats {
     width: 50%;
     align-items: center;
     flex-direction: column;
 }
 
-.player .icon.big {
-    font-size: 35px;
+.icon.big {
+    font-size: 40px;
 }
 
-.player .btn.active .icon {
+.btn.active .icon:not(.js-shuffle .icon) {
     color: var(--yellow-bee);
 }
 
-.player .js-repeat.repeat-one .icon::before {
+.js-repeat.repeat-one .icon::before {
     content: 'repeat_one';
 }
 
-.player .js-repeat .icon::before {
+.js-repeat .icon::before {
     content: 'repeat';
 }
 
-.player .js-play.playing .icon::before {
+.btn.js-shuffle .icon{
+    transition: 0.5s;
+}
+
+.btn.active.js-shuffle .icon {
+    transform: rotate3d(1, 0, 0, 360deg);
+}
+
+.js-play.playing .icon::before {
     content: 'pause_circle_filled';
 }
 
-.player .js-play .icon::before {
+.js-play .icon::before {
     content: 'play_circle_filled';
 }
 
-.player .time-container {
+.time-container {
     width: 100%;
     color: #595959;
     font-weight: 600;
     align-items: center;
 }
 
-.player .current-time, .player .end-time {
+.current-time, .player .end-time {
     width: 35px;
 }
 
@@ -103,7 +117,7 @@ input[type="range"]::-moz-range-thumb {
     border: none;
 }
 
-.player .time-bar {
+.time-bar {
     width: 90%;
     margin: 0 10px;
     outline: none;
@@ -113,7 +127,7 @@ input[type="range"]::-moz-range-thumb {
     transition: background 450ms ease-in;
 }
 
-.player .time-bar::-webkit-slider-thumb {
+.time-bar::-webkit-slider-thumb {
     visibility: hidden;
     -webkit-appearance: none;
     appearance: none;
@@ -123,11 +137,11 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 200px;
 }
 
-.player .time-bar:hover::-webkit-slider-thumb {
+.time-bar:hover::-webkit-slider-thumb {
     visibility: visible;
 }
 
-.player .time-bar::-moz-range-thumb {
+.time-bar::-moz-range-thumb {
     visibility: hidden;
     appearance: none;
     border: none;
@@ -137,11 +151,11 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 200px;
 }
 
-.player .time-bar:hover::-moz-range-thumb {
+.time-bar:hover::-moz-range-thumb {
     visibility: visible;
 }
 
-.player .controlers-extra {
+.controlers-extra {
     justify-content: flex-end;
     align-items: center;
 }
@@ -177,4 +191,253 @@ input[type="range"]::-moz-range-thumb {
     height: 15px;
     background: var(--text);
     border-radius: 200px;
+}
+
+.player .js-open.active .icon::before {
+    content: 'playlist_remove';
+}
+
+.player .js-open.active .icon {
+    font-size: 32px;
+}
+
+.player .js-open .icon::before {
+    content: 'menu_open';
+}
+
+#content-container {
+    display: inherit;
+    visibility: visible;
+    overflow-y: auto
+}
+
+#content-container.active {
+    display: none;
+    visibility: hidden;
+    overflow-y: hidden;
+}
+
+.big-player {
+    display: none;
+}
+
+.big-player.active {
+    display: flex;
+    background: var(--bg-primary);
+    width: 85%;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    height: 72vh;
+    justify-content: space-evenly;
+    animation: showPlayer 0.5s;
+    visibility: visible;
+    flex-direction: row;
+}
+
+.big-player .cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    width: 70%;
+}
+
+.big-player .cover {
+    width: 510px;
+    height: 510px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.side-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid var(--bg-light);
+    padding: 0 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    gap: 15px;
+}
+
+.side-details::-webkit-scrollbar-track {
+    background-color: var(--bg-primary);
+}
+
+.big-player .music-card {
+    background: var(--bg-light);
+}
+
+.side-details::-webkit-scrollbar {
+    width: 10px;
+}
+
+.side-details::-webkit-scrollbar-thumb {
+    background: var(--bg-light);
+    border-radius: 15px;
+    background-clip: content-box;
+}
+
+.side-details .top {
+    display: flex;
+    background: var(--bg-light);
+    padding: 5px 15px;
+    border-radius: 200px;
+}
+
+.side-details .top .title {
+    font-size: 16px;
+}
+
+.side-details .top .icon {
+    margin-right: 5px;
+}
+
+.big-player .js-close, .big-player-mobile .js-close {
+    transform: translate(10px, -10px);
+}
+
+.big-player-container {
+    display: flex;
+    width: 100%;
+}
+
+.big-player-mobile, 
+.big-player-mobile.active + .player.active{
+    display: none;
+}
+
+.big-player-mobile.active {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    width: 94%;
+    height: 91vh;
+    animation: showPlayer 0.5s;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.big-player-mobile .js-close {
+    transform: translate(0, 0);
+    padding: 15px;
+}
+
+.big-player-mobile .cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.big-player-mobile .cover {
+    width: 240px;
+    height: 240px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.big-player-mobile .top {
+    margin-top: 15px;
+}
+
+.big-player-mobile .stats {
+    width: 100%;
+}
+
+.big-player-mobile .music-card {
+    background: var(--bg-secondary);
+}
+
+.big-player-mobile .h-1 .media {
+    width: 260px;
+}
+
+.big-player-mobile .h-1 .music-card .details {
+    width: 160px;
+    max-width: 160px;
+}
+
+.big-player-mobile .music-details {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.big-player-mobile .music-details .title, .big-player-mobile .music-details .artist-description {
+    width: 200px;
+}
+
+@keyframes showPlayer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+        bottom: -120px;
+    }
+}
+
+@media (max-width: 1024.6px) {
+    .big-player-container {
+        display: initial;
+    }
+
+    .big-player .js-close {
+        transform: translate(-10px, -735px);
+    }
+
+    .big-player {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .side-details {
+        border: none;
+        height: 200px;
+    }
+
+    .big-player .cover-container {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 768.6px) {
+    #player-container {
+        bottom: 0;
+        left: 5.9vw;
+    }
+
+    .player.active {
+        border-radius: 0;
+        width: 94%;
+    }
+
+    .player .time-container, .player .controlers-extra, .player .js-previous, .player .js-shuffle {
+        display: none;
+    }
+}
+
+@media (max-width: 425.6px) {
+    #player-container {
+        bottom: 55px;
+        left: 0;
+    }
+
+    .player.active {
+        width: 100%;
+    }
+
+    .player .js-repeat {
+        display: none;
+    }
+    
+    .big-player-mobile.active {
+        width: 100%;
+        height: calc(100vh - 115px);
+    }
 }

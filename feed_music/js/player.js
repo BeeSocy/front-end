@@ -6,37 +6,147 @@ document.addEventListener('DOMContentLoaded', () => {
         playing: false,
         repeat: 'off',
         shuffle: false,
+        shuffleOrder: [],
         src: '',
-        path: '../assets/files/',
+        cover: '',
+        title: '',
+        artist: [],
+        explict: false,
+        currentMusic: 1,
+        currentPosition: 1,
+        musicPath: '../assets/files/',
+        coverPath: '../assets/img/',
         volume: 0,
         currentTime: 0,
         finalTime: 0,
 
         controlers:
         {
-            repeat: document.querySelector('.js-repeat'),
-            shuffle: document.querySelector('.js-suffle'),
-            back: document.querySelector('.js-previous'),
-            next: document.querySelector('.js-next'),
-            play: document.querySelector('.js-play'),
-            timeBar: document.querySelector('.time-bar'),
-            currentTime: document.querySelector('.current-time'),
-            endTime: document.querySelector('.end-time')
+            cover: document.querySelector('.player .cover'),
+            title: document.querySelectorAll('.player .title, .big-player-mobile .music-details .title'),
+            artist: document.querySelectorAll('.player .artist-description, .big-player-mobile .artist-description'),
+            explicit: document.querySelectorAll('.player .explicit', '.big-player-mobile .explicit'),
+            repeat: document.querySelectorAll('.js-repeat'),
+            shuffle: document.querySelectorAll('.js-shuffle'),
+            back: document.querySelectorAll('.js-previous'),
+            next: document.querySelectorAll('.js-next'),
+            play: document.querySelectorAll('.js-play'),
+            timeBar: document.querySelectorAll('.time-bar'),
+            currentTime: document.querySelectorAll('.current-time'),
+            endTime: document.querySelectorAll('.end-time')
         },
 
         volumeItens:
         {
             bar: document.querySelector('.volume'),
             icon: document.querySelector('.volume-icon')
+        },
+
+        trackList:
+        {
+            1:
+            {
+                id: 27,
+                title: 'Tato e Sutileza',
+                artist: ['MD Chefe', 'Negra Li'],
+                explicit: false,
+                audio: '1.mp3',
+                cover: '1.jfif'
+            },
+
+            2:
+            {
+                id: 427,
+                title: 'Mirante',
+                artist: ['Tz da Coronel', 'Borges', 'Neo Beats'],
+                explicit: true,
+                audio: '2.mp3',
+                cover: '3.jpg'
+            },
+
+            3:
+            {
+                id: 21,
+                title: 'A Cara do Crime 3',
+                artist: ['MC Poze do Rodo', 'Bielzin', 'Felipe Ret', 'Orochi', 'Mainstreat', 'Neo Beats'],
+                explicit: true,
+                audio: '3.mp3',
+                cover: '2.jpg'
+            }
         }
     }
 
+    function getMusic(id) {
+        return trackControler.trackList[id];
+    }
+
+    function getTrackListLength() {
+        return Object.keys(trackControler.trackList).length;
+    }
+
+    function setInTrackList(position, id, title, artist, explicit, audio, cover) {
+        let length = getTrackListLength();
+        for (let i = length; i >= position; i--) {
+            trackControler.trackList[i + 1] = trackControler.trackList[i];
+        }
+        trackControler.trackList[position] =
+        {
+            id: id,
+            title: title,
+            artist: artist,
+            explicit: explicit,
+            audio: audio,
+            cover: cover
+        }
+    }
+
+    function formartArtist(artistElement, artistArray) {
+        artistArray.forEach((value, key) => {
+            artistElement.innerHTML += value;
+            if (key == artistArray.length - 2) {
+                artistElement.innerHTML += ' e ';
+            } else if (key != artistArray.length - 1) {
+                artistElement.innerHTML += ', ';
+            }
+        });
+    }
+
+    function applyMusic(position) {
+        trackControler.title = getMusic(position).title;
+        trackControler.artist = getMusic(position).artist;
+        trackControler.explict = getMusic(position).explicit;
+        trackControler.src = getMusic(position).audio;
+        trackControler.cover = getMusic(position).cover;
+        trackControler.currentMusic = position;
+        trackControler.currentTime = 0;
+
+        trackControler.controlers.title.forEach((value) => {
+            value.innerHTML = trackControler.title;
+        })
+
+        trackControler.controlers.artist.forEach((value) => {
+            value.innerHTML = '';
+            formartArtist(value, trackControler.artist);
+        })
+
+        trackControler.controlers.explicit.forEach((value) => {
+            value.hidden = !trackControler.explict;
+        })
+        changeVolume(trackControler.volume, trackControler.volumeItens.bar);
+        trackControler.track.src = `${trackControler.musicPath}${trackControler.src}`;
+        trackControler.controlers.cover.style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`;
+        trackControler.track.currentTime = 0;
+        document.querySelector('.big-player .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
+        document.querySelector('.big-player-mobile .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
+
+    }
+
     function startPlayer() {
-        trackControler.src = `${trackControler.path}1.mp3`
-        trackControler.track.src = trackControler.src
+        applyMusic(1);
         trackControler.track.load();
         trackControler.loaded = true;
         trackControler.volume = trackControler.track.volume;
+        changeVolume(50, trackControler.volumeItens.bar);
 
         trackControler.track.addEventListener('loadedmetadata', () => {
             trackControler.currentTime = 0;
@@ -44,15 +154,183 @@ document.addEventListener('DOMContentLoaded', () => {
 
             finalTime = trackControler.finalTime
 
-            trackControler.controlers.endTime.innerHTML = secondsFormat(finalTime);
-            trackControler.controlers.timeBar.max = finalTime;
-            trackControler.controlers.timeBar.step = finalTime / trackControler.controlers.timeBar.max;
+            trackControler.controlers.endTime.forEach((value) => {
+                value.innerHTML = secondsFormat(finalTime);
+            })
 
-            changeVolume(trackControler.volume * 100, trackControler.volumeItens.bar);
+            trackControler.controlers.timeBar.forEach((value) => {
+                value.max = finalTime;
+            })
+            trackControler.controlers.timeBar.forEach((value) => {
+                value.step = finalTime / value.max;
+            })
+            document.querySelector('.player').classList.add('active');
         })
+
+        let i = 0;
+        for (const key in trackControler.trackList) {
+            trackControler.shuffleOrder[i] = key;
+            i++;
+        }
+
+        for (const key in trackControler.shuffleOrder) {
+            let track = trackControler.trackList[trackControler.shuffleOrder[key]];
+
+            document.querySelector('.big-player .side-details').appendChild(createTrackListItem(`${trackControler.coverPath}${track.cover}`, track.title, `${track.explicit}`, track.artist));
+            document.querySelector('.big-player-mobile .side-details').appendChild(createTrackListItem(`${trackControler.coverPath}${track.cover}`, track.title, `${track.explicit}`, track.artist));
+
+        }
+        toolbarEvent();
+        playMusicInTrackList();
     }
 
-    startPlayer()
+    function toolbarEvent() {
+        document.querySelectorAll('.js-music-toolbar-toggler').forEach((v) => {
+            v.addEventListener('click', () => {
+                event.preventDefault();
+                let x = event.currentTarget.getBoundingClientRect().left;
+                let y = event.currentTarget.getBoundingClientRect().top;
+
+                v.children[1].classList.toggle('active');
+
+                if (event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.contains('side-details')) {
+                    v.children[1].style.setProperty('top', `${y - 80}px`);
+                    if (window.innerHeight - (y - 80) <= 440) {
+                        v.children[1].style.setProperty('top', `${y - 450}px`);
+                    }
+                } else {
+                    v.children[1].style.setProperty('left', `${x}px`);
+                }
+            });
+        });
+    }
+
+    function createElement(elementName, className) {
+        let element = document.createElement(elementName);
+        element.className = className;
+
+        return element;
+    }
+
+    function createTrackListItem(cover, title, explicit, artist) {
+        let queueIcon = createElement('span', 'material-icons icon');
+        queueIcon.innerHTML = 'queue_music';
+        let queueDesc = createElement('span', '');
+        queueDesc.innerHTML = 'Adicionar à fila';
+        let queue = createElement('li', 'menu-item queue');
+        queue.appendChild(queueIcon);
+        queue.appendChild(queueDesc);
+
+        let playNowIcon = createElement('span', 'material-icons icon');
+        playNowIcon.innerHTML = 'playlist_play';
+        let playNowDesc = createElement('span', '');
+        playNowDesc.innerHTML = 'Tocar a seguir';
+        let playNow = createElement('li', 'menu-item queue');
+        playNow.appendChild(playNowIcon);
+        playNow.appendChild(playNowDesc);
+
+        let playlistAddIcon = createElement('span', 'material-icons icon');
+        playlistAddIcon.innerHTML = 'playlist_add';
+        let playlistAddDesc = createElement('span', '');
+        playlistAddDesc.innerHTML = 'Adicionar à playlist';
+        let playlistAdd = createElement('li', 'menu-item queue');
+        playlistAdd.appendChild(playlistAddIcon);
+        playlistAdd.appendChild(playlistAddDesc);
+
+        let favoriteIcon = createElement('span', 'material-icons icon');
+        favoriteIcon.innerHTML = 'favorite_border';
+        let favoriteDesc = createElement('span', '');
+        favoriteDesc.innerHTML = 'Curtir';
+        let favorite = createElement('li', 'menu-item queue');
+        favorite.appendChild(favoriteIcon);
+        favorite.appendChild(favoriteDesc);
+
+        let shareIcon = createElement('span', 'material-icons icon');
+        shareIcon.innerHTML = 'share';
+        let shareDesc = createElement('span', '');
+        shareDesc.innerHTML = 'Compartilhar';
+        let share = createElement('li', 'menu-item queue');
+        share.appendChild(shareIcon);
+        share.appendChild(shareDesc);
+
+        let saveIcon = createElement('span', 'material-icons icon');
+        saveIcon.innerHTML = 'bookmark_border';
+        let saveDesc = createElement('span', '');
+        saveDesc.innerHTML = 'Salvar';
+        let save = createElement('li', 'menu-item queue');
+        save.appendChild(saveIcon);
+        save.appendChild(saveDesc);
+
+        let reportIcon = createElement('span', 'material-icons-outlined icon');
+        reportIcon.innerHTML = 'flag';
+        let reportDesc = createElement('span', '');
+        reportDesc.innerHTML = 'Denunciar';
+        let report = createElement('li', 'menu-item queue');
+        report.appendChild(reportIcon);
+        report.appendChild(reportDesc);
+
+        let toolbarMenu = createElement('ul', 'toolbar-menu');
+        toolbarMenu.appendChild(queue);
+        toolbarMenu.appendChild(playNow);
+        toolbarMenu.appendChild(playlistAdd);
+        toolbarMenu.appendChild(favorite);
+        toolbarMenu.appendChild(share);
+        toolbarMenu.appendChild(save);
+        toolbarMenu.appendChild(report);
+
+        let toolbarIcon = createElement('span', 'material-icons icon');
+        toolbarIcon.innerHTML = 'more_vert'
+
+        let toolbarButton = createElement('button', 'toolbar js-music-toolbar-toggler');
+        toolbarButton.appendChild(toolbarIcon);
+        toolbarButton.appendChild(toolbarMenu);
+
+        let artistDescription = createElement('span', 'artist-description');
+        formartArtist(artistDescription, artist);
+
+        let explicitIcon = createElement('span', 'material-icons-round icon explicit');
+        explicitIcon.innerHTML = 'explicit';
+        if (explicit == 'false') {
+            explicitIcon.hidden = true;
+        }
+
+        let artistDiv = createElement('div', 'artist');
+        artistDiv.appendChild(explicitIcon);
+        artistDiv.appendChild(artistDescription);
+
+        let detailsTitle = createElement('span', 'title');
+        detailsTitle.innerHTML = title;
+
+        let detailsDiv = createElement('section', 'details');
+        detailsDiv.appendChild(detailsTitle);
+        detailsDiv.appendChild(artistDiv);
+
+        let playIcon = createElement('span', 'material-icons icon');
+        playIcon.innerHTML = 'play_arrow';
+
+        let playButton = createElement('a', 'play-button');
+        playButton.appendChild(playIcon);
+
+        let coverMenu = createElement('div', 'menu');
+        coverMenu.appendChild(playButton);
+
+        let coverDiv = createElement('div', 'cover');
+        coverDiv.style.backgroundImage = `url(${cover})`
+        coverDiv.appendChild(coverMenu);
+
+        let musicCard = createElement('div', 'card music-card');
+        musicCard.appendChild(coverDiv);
+        musicCard.appendChild(detailsDiv)
+        musicCard.appendChild(toolbarButton);
+
+        let media = createElement('div', 'media');
+        media.appendChild(musicCard)
+
+        let h1 = createElement('div', 'h-1');
+        h1.appendChild(media);
+
+        return h1;
+    }
 
     function secondsFormat(s) {
         function startZero(n) {
@@ -131,15 +409,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return trackControler.volume;
     }
 
-    function playControl(icon, play) {
+    let timer;
+    function startTime() {
+        if (trackControler.playing == false) {
+            timer = setInterval(() => {
+                trackControler.currentTime = trackControler.track.currentTime;
+                trackControler.controlers.currentTime.forEach((value) => {
+                    value.innerHTML = secondsFormat(getCurrentTime());
+                });
+
+                trackControler.controlers.timeBar.forEach((value) => {
+                    value.value = trackControler.currentTime;
+                    changeRangeStyle(value, 'var(--bg-light)', 'var(--yellow-bee)');
+                })
+    
+            }, 1130);
+        } else {
+            clearInterval(timer);
+        }
+    }
+
+    function playControl(play) {
         if (play) {
-            startTime(trackControler.controlers.timeBar);
-            icon.classList.add('playing');
+            startTime();
+            
+            trackControler.controlers.play.forEach((value) => {
+                value.classList.add('playing')
+            })
+
             trackControler.playing = true;
         } else {
             clearInterval(timer);
-            icon.classList.remove('playing');
             trackControler.playing = false;
+            trackControler.controlers.play.forEach((value) => {
+                value.classList.remove('playing')
+            })
         }
     }
 
@@ -154,23 +458,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function setTime(seconds) {
         trackControler.currentTime = seconds;
         trackControler.track.currentTime = trackControler.currentTime;
-        trackControler.controlers.currentTime.innerHTML = secondsFormat(getCurrentTime());
-        trackControler.controlers.timeBar.value = seconds;
-        changeRangeStyle(trackControler.controlers.timeBar, 'var(--bg-light)', 'var(--yellow-bee)');
-    }
-
-    let timer;
-    function startTime(element) {
-        if (trackControler.playing == false) {
-            timer = setInterval(() => {
-                element.value++;
-                trackControler.currentTime = trackControler.track.currentTime;
-                trackControler.controlers.currentTime.innerHTML = secondsFormat(getCurrentTime());
-                changeRangeStyle(trackControler.controlers.timeBar, 'var(--bg-light)', 'var(--yellow-bee)');
-            }, 1130);
-        }else {
-            clearInterval(timer);
-        }
+        trackControler.controlers.currentTime.forEach((value) => {
+            value.innerHTML = secondsFormat(getCurrentTime());
+        })
+        trackControler.controlers.timeBar.forEach((value) => {
+            value.value = seconds;
+            changeRangeStyle(value, 'var(--bg-light)', 'var(--yellow-bee)');
+        })
     }
 
     function getCurrentTime() {
@@ -181,22 +475,124 @@ document.addEventListener('DOMContentLoaded', () => {
         return trackControler.playing;
     }
 
+    function applyMusicPlay(position) {
+        applyMusic(position);
+        clearInterval(timer);
+        trackControler.playing = false;
+        playTrack();
+    }
+
     function forward() {
-        if(trackControler.currentTime <= 4) {
-            setTime(0);
-        }else {
-            /* Música anteriror */
+        if (trackControler.currentTime <= 4 && trackControler.currentPosition != 1) {
+            trackControler.currentPosition -= 1;
+            applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
+        }
+
+        if (getRepeatStatus() == 'one') {
+            trackControler.controlers.repeat.forEach((value) => {
+                repeat('on', value);
+            })
+        }
+        setTime(0);
+    }
+
+    function next() {
+        if (trackControler.shuffle) {
+            if (trackControler.currentPosition == getTrackListLength()) {
+                trackControler.currentPosition = 1;
+                applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
+            } else {
+                trackControler.currentPosition += 1;
+                applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
+            }
+        } else {
+            if (trackControler.currentPosition != getTrackListLength()) {
+                trackControler.currentPosition += 1;
+                applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
+            } else if (getRepeatStatus() == 'on') {
+                trackControler.currentPosition = 1;
+                applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
+            }
+        }
+
+        if (getRepeatStatus() == 'one') {
+            trackControler.controlers.repeat.forEach((value) => {
+                repeat('on', value);
+            })
+        }
+        setTime(0);
+    }
+
+    function endTrack() {
+        if (trackControler.currentPosition != getTrackListLength()) {
+            next();
+        } else if (getRepeatStatus() == 'on') {
+            trackControler.currentPosition = 1;
+            applyMusicPlay(trackControler.shuffleOrder[trackControler.currentPosition - 1]);
         }
     }
 
-    trackControler.controlers.timeBar.addEventListener('input', () => {
-        changeRangeStyle(event.currentTarget, 'var(--bg-light)', 'var(--yellow-bee)');
-        setTime(event.currentTarget.value * event.currentTarget.step, event.currentTarget);
-    });
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function shuffle(icon) {
+        trackControler.shuffle = !trackControler.shuffle;
+        icon.classList.toggle('active');
+
+        let order = trackControler.shuffleOrder;
+        let tmpTrack = trackControler.shuffleOrder[trackControler.currentPosition - 1];
+        order.splice(trackControler.currentPosition - 1, 1);
+        shuffleArray(order);
+
+        if (trackControler.currentPosition - 1 == 0) {
+            order.unshift(tmpTrack);
+        } else if (trackControler.currentPosition - 1 == order.length) {
+            order.push(tmpTrack);
+        } else {
+
+            for (let i = order.length; i >= trackControler.currentPosition; i--) {
+                order[i] = order[i - 1];
+            }
+            order[trackControler.currentPosition - 1] = tmpTrack
+        }
+
+
+        document.querySelectorAll('.big-player .side-details > *').forEach((value) => {
+            if (value.classList.contains('h-1')) {
+                document.querySelector('.big-player .side-details').removeChild(value);
+            }
+        })
+
+        document.querySelectorAll('.big-player-mobile .side-details > *').forEach((value) => {
+            if (value.classList.contains('h-1')) {
+                document.querySelector('.big-player-mobile .side-details').removeChild(value);
+            }
+        })
+        for (const key in trackControler.shuffleOrder) {
+            let track = trackControler.trackList[trackControler.shuffleOrder[key]];
+
+            document.querySelector('.big-player .side-details').appendChild(createTrackListItem(`${trackControler.coverPath}${track.cover}`, track.title, `${track.explicit}`, track.artist));
+            document.querySelector('.big-player-mobile .side-details').appendChild(createTrackListItem(`${trackControler.coverPath}${track.cover}`, track.title, `${track.explicit}`, track.artist));
+        }
+        toolbarEvent();
+        playMusicInTrackList();
+    }
+
+    trackControler.controlers.timeBar.forEach((value) => {
+        value.addEventListener('input', () => {
+            changeRangeStyle(event.currentTarget, 'var(--bg-light)', 'var(--yellow-bee)');
+            setTime(event.currentTarget.value * event.currentTarget.step, event.currentTarget);
+        });
+    })
 
     trackControler.volumeItens.bar.addEventListener('input', () => {
         changeVolume(event.currentTarget.value, event.currentTarget);
-    });
+    })
 
     trackControler.volumeItens.icon.addEventListener('mousedown', () => {
         event.preventDefault;
@@ -205,28 +601,137 @@ document.addEventListener('DOMContentLoaded', () => {
         changeRangeStyle(trackControler.volumeItens.bar, 'var(--bg-light)', 'var(--text)');
     })
 
-    trackControler.controlers.repeat.addEventListener('click', () => {
-        if (getRepeatStatus() == 'off') {
-            repeat('on', event.currentTarget);
-        } else if (getRepeatStatus() == 'on') {
-            repeat('one', event.currentTarget);
-        } else if (getRepeatStatus() == 'one') {
-            repeat('off', event.currentTarget);
-        }
+    trackControler.controlers.repeat.forEach((value) => {
+        value.addEventListener('click', () => {
+            if (getRepeatStatus() == 'off') {
+                repeat('on', event.currentTarget);
+            } else if (getRepeatStatus() == 'on') {
+                repeat('one', event.currentTarget);
+            } else if (getRepeatStatus() == 'one') {
+                repeat('off', event.currentTarget);
+            }
+        })
     })
 
-    trackControler.track.addEventListener('play', () => playControl(trackControler.controlers.play, true));
-    trackControler.track.addEventListener('pause', () => playControl(trackControler.controlers.play, false));
-    trackControler.track.addEventListener('ended', () => playControl(trackControler.controlers.play, false));
+    trackControler.track.addEventListener('play', () => playControl(true));
+    trackControler.track.addEventListener('pause', () => playControl(false));
+    trackControler.track.addEventListener('ended', () => endTrack());
     trackControler.track.addEventListener('timeupdate', () => {
-        if(event.currentTarget.currentTime >= trackControler.finalTime-1) {
-            trackControler.controlers.timeBar.value = 0;
+        if (event.currentTarget.currentTime >= trackControler.finalTime - 1) {
+            trackControler.controlers.timeBar.forEach((value) => {
+                value.value = 0;
+            })
         }
     })
 
-    trackControler.controlers.play.addEventListener('click', () => playTrack(event.currentTarget));
-    trackControler.controlers.back.addEventListener('click', () => {
-        forward();
+    trackControler.controlers.play.forEach((value) => {
+        value.addEventListener('click', () => playTrack());
+    })
+    trackControler.controlers.back.forEach((value) => {
+        value.addEventListener('click', () => forward());
+    })
+    trackControler.controlers.next.forEach((value) => {
+        value.addEventListener('click', () => next())
+
+    })
+    trackControler.controlers.shuffle.forEach((value) => {
+        value.addEventListener('click', () => {
+            shuffle(event.currentTarget);
+            playMusicInTrackList();
+        });
     })
 
+    let notClick = []
+
+    for (const key in trackControler.controlers) {
+        if(key != 'cover' && key != 'artist' && key != 'title' && key != 'explicit') {
+            if (trackControler.controlers[key]) {
+                trackControler.controlers[key].forEach((value) => {
+                    notClick.push(value);
+                    if (value.children.length > 0) {
+                        notClick.push(value.children[0])
+                    }
+                })
+            }
+        }
+    }
+
+    for (const key in trackControler.volumeItens) {
+        if (trackControler.volumeItens[key]) {
+            notClick.push(trackControler.volumeItens[key]);
+            if (trackControler.volumeItens[key].children.length > 0) {
+                notClick.push(trackControler.volumeItens[key].children[0])
+            }
+        }
+    }
+
+    function showBigPlayer() {
+        document.querySelector('.js-open').classList.toggle('active');
+        document.querySelector('#content-container').classList.toggle('active');
+
+        if (window.innerWidth <= 768.6) {
+            document.querySelector('.big-player-mobile').classList.toggle('active');
+        } else {
+            document.querySelector('.big-player').classList.toggle('active');
+        }
+    }
+
+    document.querySelector('.player').addEventListener('click', () => {
+        if (!notClick.includes(event.target)) {
+            showBigPlayer();
+        }
+    });
+
+
+    document.querySelector('.big-player .js-close').addEventListener('click', () => showBigPlayer());
+    document.querySelector('.big-player-mobile .js-close').addEventListener('click', () => showBigPlayer());
+
+    document.querySelectorAll('#content-container .play-button').forEach((value) => {
+        value.addEventListener('click', () => startPlayer());
+    })
+
+
+    function playMusicInTrackList() {
+        document.querySelectorAll('.big-player .side-details .play-button').forEach((value) => {
+            value.addEventListener('click', () => {
+                let trackItens = [];
+                document.querySelectorAll('.big-player .side-details .play-button').forEach((itens) => {
+                    trackItens.push(itens.parentElement.parentElement.style.backgroundImage);
+                });
+                let position = trackItens.indexOf(event.currentTarget.parentElement.parentElement.style.backgroundImage)
+                applyMusicPlay(trackControler.shuffleOrder[position]);
+                trackControler.currentPosition = position + 1;
+                setTime(0);
+                if (getRepeatStatus() == 'one') {
+                    trackControler.controlers.repeat.forEach((value) => {
+                        repeat('on', value);
+                    })
+                }
+            })
+        });
+
+        document.querySelectorAll('.big-player-mobile .side-details .play-button').forEach((value) => {
+            value.addEventListener('click', () => {
+                let trackItens = [];
+                document.querySelectorAll('.big-player-mobile .side-details .play-button').forEach((itens) => {
+                    trackItens.push(itens.parentElement.parentElement.style.backgroundImage);
+                });
+                let position = trackItens.indexOf(event.currentTarget.parentElement.parentElement.style.backgroundImage)
+                applyMusicPlay(trackControler.shuffleOrder[position]);
+                trackControler.currentPosition = position + 1;
+                setTime(0);
+                if (getRepeatStatus() == 'one') {
+                    trackControler.controlers.repeat.forEach((value) => {
+                        repeat('on', value);
+                    })
+                }
+            })
+        });
+    }
+
+    document.querySelector('.big-player-mobile .side-details').addEventListener('touchstart', () => {
+        document.querySelector('.big-player-mobile').scrollTo({ top: document.querySelector('.big-player-mobile').scrollHeight, left: 0, behavior: 'smooth' })
+    })
+
+    playMusicInTrackList();
 });

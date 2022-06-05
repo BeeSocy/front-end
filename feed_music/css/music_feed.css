@@ -22,6 +22,10 @@
 
 /*Container measures*/
 
+.content {
+    margin-bottom: 60px;
+}
+
 .media {
     height: 280px;
     animation: zoom_at_start .5s;
@@ -191,34 +195,31 @@
 .details {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: 160px;
+    max-width: 160px;
     margin-top: 5px;
+    align-items: center;
 }
 
 .details .artist-description, .details .title {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    width: inherit;
 }
 
 .details .artist-description {
-    white-space: nowrap;
     font-size: 14px;
 }
 
-.details .title {
-    display: -webkit-box;
-    display: -moz-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    white-space: normal;
+.h-2 .details .title {
+    text-align: center;
 }
 
 .artist{
     display: flex;
     align-items: center;
-    justify-content: center;
+    max-width: inherit;
 }
 
 .title {
@@ -330,6 +331,8 @@
 .h-1 .music-card .details {
     margin-top: 0;
     align-items: flex-start;
+    width: 200px;
+    max-width: 200px;
 }
 
 .h-1 .music-card .title {
@@ -337,7 +340,8 @@
 }
 
 .h-1 .music-card .artist, .h-1 .music-card .title {
-    width: 206px;
+    width: inherit;
+    max-width: inherit;
     justify-content: flex-start;
 }
 
@@ -355,6 +359,10 @@
 
 .h-1 .music-card .play-button {
     padding-top: 0;
+}
+
+.play-button:hover {
+    cursor: pointer;
 }
 
 .h-2 {
@@ -442,6 +450,10 @@
     height: 60%;
 }
 
+.profile-card .details {
+    align-items: center;
+}
+
 .profile-card .details .title {
     font-size: 26px;
 }
@@ -470,6 +482,10 @@
 
     .carousel {
         scroll-snap-type: initial;
+    }
+
+    .music-card .menu, .music-card .toolbar {
+        opacity: 1;
     }
 }
 
