@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1">
+
+    <link rel="shortcut icon" href="../assets/img/logo_bee.webp" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/music_feed.css">
+
+    <script src="../js/header.js"></script>
+    <script src="../js/playlist.js"></script>
+    <script src="../js/music_feed.js"></script>
+
+    <title>BeeSocy</title>
+</head>
+
+<body class="dark">
+    <div id="nav-container">
+        <header id="header">
+            <div id="main-menu">
+                <div id="side-a">
+                    <button id="side-menu-toggler" class="btn js-side-menu-toggler"><span
+                            class="material-icons">menu</span></button>
+                    <a href="#" class="logo">
+                        <img src="../assets/img/logo_bee.webp" alt="">
+                        <span>BeeSocy</span>
+                    </a>
+                </div>
+
+                <div class="search-bar">
+                    <label for="search-input" class="material-icons icon">search</label>
+                    <input type="text" name="search" id="search-input" autocomplete="off">
+                </div>
+
+                <div id="side-b">
+                    <button class="btn search-btn">
+                        <span class="material-icons icon">search</span>
+                    </button>
+
+                    <button class="btn theme-btn">
+                        <span class="material-icons-outlined theme-icon"></span>
+                    </button>
+
+                    <button class="btn profile-btn">
+                        <span class="material-icons-outlined">account_circle</span>
+                    </button>
+
+                    <div>
+                        <button class="submit-btn">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav id="side-menu">
+            <div id="side-menu-closer" class="js-side-menu-toggler">
+                <button class="material-icons-round menu-item">close</button>
+            </div>
+            <div id="side-menu-container">
+                <ul class="menu">
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons icon">home</span>
+                            <span>Início</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">music_note</span>
+                            <span>Músicas</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">image</span>
+                            <span>Imagens</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">code</span>
+                            <span>Códigos</span>
+                        </li>
+                    </a>
+                </ul>
+
+                <div class="line"></div>
+
+                <ul class="menu">
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">bookmark_border</span>
+                            <span>Salvos</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">history</span>
+                            <span>Histórico</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">favorite_border</span>
+                            <span>Curtidos</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">chat</span>
+                            <span>Chat</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">handshake</span>
+                            <span>Vagas</span>
+                        </li>
+                    </a>
+
+                    <a href="#">
+                        <li class="menu-item">
+                            <span class="material-icons-outlined icon">school</span>
+                            <span>Aulas</span>
+                        </li>
+                    </a>
+                </ul>
+
+                <div class="line"></div>
+
+                <div id="following-container">
+                    <a href="#">
+                        <div class="menu-item" id="following-title">
+                            <span class="material-icons-outlined icon">perm_identity</span>
+                            <span>Seguindo</span>
+                        </div>
+                    </a>
+
+                    <ul class="menu" id="following-menu">
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="menu-item">
+                                <img src="../assets/img/perfil.jfif" class="profile-icon icon">
+                                <span>Nome do perfil</span>
+                            </li>
+                        </a>
+
+                        <button id="js-show-more">
+                            <li class="menu-item">
+                                <span class="material-icons-round icon"></span>
+                                <span></span>
+                            </li>
+                        </button>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav id="mobile-menu">
+            <div id="mobile-menu-container">
+                <a href="#">
+                    <div class="mobile-menu-item btn">
+                        <span class="material-icons icon">home</span>
+                        <span>Início</span>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="mobile-menu-item btn">
+                        <span class="material-icons-outlined icon">music_note</span>
+                        <span>Músicas</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-item">
+                    <button id="side-menu-toggler" class="btn js-side-menu-toggler"><span
+                            class="material-icons">menu</span></button>
+                </div>
+
+                <a href="#">
+                    <div class="mobile-menu-item btn">
+                        <span class="material-icons-outlined icon">image</span>
+                        <span>Imagens</span>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="mobile-menu-item btn">
+                        <span class="material-icons-outlined icon">code</span>
+                        <span>Códigos</span>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <main id="content-container">
+        <div class="content">
+            <div class="playlist">
+                <div class="close-playlist">
+                    <button class="btn js-playlist-close"><span class="material-icons-round icon">close</span></button>
+                </div>
+
+                <div class="playlist-details">
+                    <div class="cover" style="background-image: url('../assets/img/2.jpg');"></div>
+                    <div class="data">
+                        <span class="subtitle">PLAYLIST</span>
+                        <span class="title">Playlist bacana!</span>
+
+                        <a href="#" class="profile-container">
+                            <img src="../assets/img/perfil.jfif" class="profile-photo">
+                            <span class="profile-name">
+                                Júlio na Gaita
+                            </span>
+                        </a>
+
+                        <div class="stats">
+                            <span class="js-music-count">0 Músicas</span>
+                            <span>&#9679</span>
+                            <span class="js-playlist-time">0 horas e 0 minutos</span>
+                        </div>
+
+                        <span class="description">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum minus, enim dignissimos
+                            ut odit quas voluptates, reiciendis, maiores delectus rerum reprehenderit ad. Quae assumenda
+                            dolor rem doloribus, praesentium eos ex!.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="top-container">
+                    <div class="top">
+                        <span class="material-icons-round icon">library_music</span>
+                        <span class="title">Músicas da playlist</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-1 carousel">
+                    <button class="arrow-btn btn arrow-left"><span
+                            class="arrow material-icons">chevron_left</span></button>
+
+                    <div class="carousel-items">
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-1">
+                            <div class="media">
+                                <div class="card music-card">
+                                    <div class="cover" style="background-image: url(../assets/img/1.jfif);">
+                                        <div class="menu">
+                                            <a href="#" class="play-button">
+                                                <span class="material-icons icon">play_arrow</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <section class="details">
+                                        <span class="title">Tato e Sutileza</span>
+                                        <div class="artist">
+                                            <span class="material-icons-round icon explicit" hidden>explicit</span>
+                                            <span class="artist-description">MD Chefe e Negra Li</span>
+                                        </div>
+                                    </section>
+                                    <button class="toolbar js-music-toolbar-toggler">
+                                        <span class="material-icons icon">more_vert</span>
+                                        <ul class="toolbar-menu">
+                                            <li class="menu-item queue">
+                                                <span class="material-icons icon">queue_music</span>
+                                                <span>Adicionar à fila</span>
+                                            </li>
+
+                                            <li class="menu-item play-now">
+                                                <span class="material-icons icon">playlist_play</span>
+                                                <span>Tocar a seguir</span>
+                                            </li>
+
+                                            <li class="menu-item playlist-add">
+                                                <span class="material-icons icon">playlist_add</span>
+                                                <span>Adicionar à playlist</span>
+                                            </li>
+
+                                            <li class="menu-item like">
+                                                <span class="material-icons icon">favorite_border</span>
+                                                <span>Curtir</span>
+                                            </li>
+
+                                            <li class="menu-item share">
+                                                <span class="material-icons-outlined icon">share</span>
+                                                <span>Compartilhar</span>
+                                            </li>
+
+                                            <li class="menu-item save">
+                                                <span class="material-icons icon">bookmark_border</span>
+                                                <span>Salvar</span>
+                                            </li>
+
+                                            <li class="menu-item report">
+                                                <span class="material-icons-outlined icon">flag</span>
+                                                <span>Denunciar</span>
+                                            </li>
+                                        </ul>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="arrow-btn btn active arrow-right"><span
+                            class="arrow material-icons">chevron_right</span></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

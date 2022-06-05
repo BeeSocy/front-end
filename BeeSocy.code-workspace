@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "feed_music"
+		},
+		{
+			"path": "feed_code"
+		},
+		{
+			"path": "feed_global"
+		},
+		{
+			"path": "feed_images"
+		},
+		{
+			"path": "header"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "feed_music"
+	}
+}
