@@ -296,7 +296,7 @@ input[type="range"]::-moz-range-thumb {
     margin-right: 5px;
 }
 
-.big-player .js-close, .big-player-mobile .js-close {
+.big-player .js-close {
     transform: translate(10px, -10px);
 }
 
@@ -322,7 +322,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .big-player-mobile .js-close {
-    transform: translate(0, 0);
+    transform: translate(-20px, 45px);
     padding: 15px;
 }
 
