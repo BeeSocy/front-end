@@ -100,15 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function formartArtist(artistElement, artistArray) {
+    function formartArtist(artistArray) {
+        let str = '';
         artistArray.forEach((value, key) => {
-            artistElement.innerHTML += value;
+            str += value;
             if (key == artistArray.length - 2) {
-                artistElement.innerHTML += ' e ';
+                str += ' e ';
             } else if (key != artistArray.length - 1) {
-                artistElement.innerHTML += ', ';
+                str += ', ';
             }
         });
+
+        return str;
     }
 
     function applyMusic(position) {
@@ -126,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         trackControler.controlers.artist.forEach((value) => {
             value.innerHTML = '';
-            formartArtist(value, trackControler.artist);
+            value.innerHTML = formartArtist(trackControler.artist);
         })
 
         trackControler.controlers.explicit.forEach((value) => {
@@ -139,6 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.big-player .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
         document.querySelector('.big-player-mobile .cover').style.backgroundImage = `url(${trackControler.coverPath}${trackControler.cover})`
 
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+              title: trackControler.title,
+              artist: formartArtist(trackControler.artist),
+              album: 'Single',
+              artwork: [
+                { src: `${trackControler.coverPath}${trackControler.cover}`,   sizes: '96x96',   type: 'image/png' },
+                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '128x128', type: 'image/png' },
+                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '192x192', type: 'image/png' },
+                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '256x256', type: 'image/png' },
+                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '384x384', type: 'image/png' },
+                { src: `${trackControler.coverPath}${trackControler.cover}`, sizes: '512x512', type: 'image/png' },
+              ]
+            });
+        }
     }
 
     function startPlayer() {
@@ -286,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toolbarButton.appendChild(toolbarMenu);
 
         let artistDescription = createElement('span', 'artist-description');
-        formartArtist(artistDescription, artist);
+        artistDescription.innerHTML = formartArtist(artist);
 
         let explicitIcon = createElement('span', 'material-icons-round icon explicit');
         explicitIcon.innerHTML = 'explicit';
@@ -738,4 +756,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     playMusicInTrackList();
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => { playTrack() });
+        navigator.mediaSession.setActionHandler('pause', () => { playTrack() });
+        navigator.mediaSession.setActionHandler('previoustrack', () => { forward() });
+        navigator.mediaSession.setActionHandler('nexttrack', () => { next() });
+    } 
 });

@@ -71,11 +71,11 @@
     content: 'repeat';
 }
 
-.btn.js-shuffle .icon{
+.btn.js-shuffle .icon, .btn.js-repeat .icon{
     transition: 0.5s;
 }
 
-.btn.active.js-shuffle .icon {
+.btn.active.js-shuffle .icon, .btn.active.js-repeat .icon, .btn.repeat-one.js-repeat .icon {
     transform: rotate3d(1, 0, 0, 360deg);
 }
 
@@ -420,6 +420,11 @@ input[type="range"]::-moz-range-thumb {
     .player .time-container, .player .controlers-extra, .player .js-previous, .player .js-shuffle {
         display: none;
     }
+
+    .player .controlers {
+        width: 100%;
+        justify-content: space-evenly;
+    }
 }
 
 @media (max-width: 425.6px) {
@@ -439,5 +444,9 @@ input[type="range"]::-moz-range-thumb {
     .big-player-mobile.active {
         width: 100%;
         height: calc(100vh - 115px);
+    }
+
+    .player .js-next .icon {
+        font-size: 40px;
     }
 }
