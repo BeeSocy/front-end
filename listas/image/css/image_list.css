@@ -1,0 +1,142 @@
+#content-container {
+    padding: 30px;
+    padding-top: 85px;
+    padding-left: 75px;
+}
+
+@media (max-width: 1024.6px) {
+    #content-container.active {
+        padding-left: 210px;
+    }
+}
+
+@media (max-width: 425.6px) {
+    #content-container {
+        padding: 10px;
+        padding-top: 75px;
+        padding-bottom: 70px;
+    }
+}
+
+/*Container measures*/
+
+.media {
+    height: fit-content;
+    animation: zoom_at_start .5s;
+}
+
+@keyframes zoom_at_start {
+    from {
+        transform: scale(0.5);
+    }
+    
+    to {
+        transform: scale(1);
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.list .list-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.list .list-header .list-menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.list .list-header .list-menu .list-btn {
+    border: 3px solid var(--bg-light);
+    background: none;
+    border-radius: 200px;
+    padding: 5px 15px;
+    font-weight: 600px;
+}
+
+.list .list-header .list-menu .list-btn.active {
+    background: var(--bg-light);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.list .list-header .title  {
+    font-size: 35px;
+}
+
+.list-content {
+    display: grid;
+    gap: 10px;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.list-content .w-2 {
+    grid-column: span 2;
+}
+
+.card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: inherit;
+    border-radius: 20px;
+}
+
+.img-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 20px;
+    height: 360px;
+}
+
+
+@media (max-width: 1440.6px) {
+    .list-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1024.6px) {
+    .list-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768.6px) {
+    .list-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540.6px) {
+    .list-content {
+        grid-template-columns: 1fr
+    }
+    
+    .list-content .w-2 {
+        grid-column: span 1;
+    }
+
+    .list .list-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .list .list-header .list-menu {
+        gap: 10px;
+    }
+}
